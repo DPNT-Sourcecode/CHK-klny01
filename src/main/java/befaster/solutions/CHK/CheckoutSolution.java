@@ -13,7 +13,7 @@ public class CheckoutSolution {
         prices.put('A', 50);
         prices.put('B', 30);
         prices.put('C', 20);
-        prices.put('C', 15);
+        prices.put('D', 15);
 
         specialOffers.put('A', new SpecialOffer(3, 130));
         specialOffers.put('B', new SpecialOffer(2, 45));
@@ -28,6 +28,9 @@ public class CheckoutSolution {
         Map<Character, Integer> itemCounts = new HashMap<>();
 
         for(char sku : skus.toCharArray()){
+            if(sku != 'A' || sku != 'B' || sku != 'C' ||sku != 'D'){
+                return -1;
+            }
             itemCounts.put(sku, itemCounts.getOrDefault(sku, 0) + 1);
         }
 
@@ -78,3 +81,4 @@ public class CheckoutSolution {
         }
     }
 }
+
