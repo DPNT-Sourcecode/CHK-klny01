@@ -19,7 +19,7 @@ public class CheckoutSolution {
         specialOffers.put('A', new SpecialOffer(3, 130));
         specialOffers.put('A', new SpecialOffer(5, 200));
         specialOffers.put('B', new SpecialOffer(2, 45));
-        specialOffers.put('E', new SpecialOffer(2, 0));
+        specialOffers.put('E', new SpecialOffer(2, 0, 'B'));
 
     }
 
@@ -110,6 +110,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
