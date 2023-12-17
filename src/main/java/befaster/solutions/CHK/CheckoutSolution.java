@@ -49,8 +49,13 @@ public class CheckoutSolution {
                 int specialOfferPrice = specialOffer.getPrice();
                 totalPrice += (count / specialOfferCount) * specialOfferPrice + (count % specialOfferCount) * price;
             }
+            else{
+               totalPrice += count * price;
+            }
 
         }
+
+        return totalPrice;
 
     }
 
@@ -73,7 +78,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
-
