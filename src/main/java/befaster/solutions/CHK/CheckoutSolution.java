@@ -59,7 +59,9 @@ public class CheckoutSolution {
                 totalPrice += totalSpecialPrice;
 
                 if(specialOffer.getFreeItem() != null){
-
+                    char freeItemSku = specialOffer.getFreeItem();
+                    int freeItemQuantity = (count / specialOfferCount);
+                    freeItemCount.put(freeItemSku, freeItemCount.getOrDefault(freeItemSku, 0) + freeItemQuantity);
                 }
 
             }
@@ -98,5 +100,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
