@@ -19,7 +19,7 @@ public class CheckoutSolution {
         specialOffers.put('A', new SpecialOffer(3, 130));
         specialOffers.put('A', new SpecialOffer(5, 200));
         specialOffers.put('B', new SpecialOffer(2, 45));
-        specialOffers.put('E', new SpecialOffer(2, 'B'));
+        specialOffers.put('E', new SpecialOffer(2, 0));
 
     }
 
@@ -30,6 +30,7 @@ public class CheckoutSolution {
         }
 
         Map<Character, Integer> itemCounts = new HashMap<>();
+        Map<Character, Integer> freeItemCount = new HashMap<>();
 
         for(char sku : skus.toCharArray()){
             itemCounts.put(sku, itemCounts.getOrDefault(sku, 0) + 1);
@@ -51,7 +52,10 @@ public class CheckoutSolution {
             if (specialOffer != null){
                 int specialOfferCount = specialOffer.getCount();
                 int specialOfferPrice = specialOffer.getPrice();
-                totalPrice += (count / specialOfferCount) * specialOfferPrice + (count % specialOfferCount) * price;
+
+                int totalSpecialPrice = (count / specialOfferCount) * specialOfferPrice + (count % specialOfferCount) * price;
+                totalPrice += totalSpecialPrice;
+
             }
             else{
                totalPrice += count * price;
@@ -82,7 +86,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
-
