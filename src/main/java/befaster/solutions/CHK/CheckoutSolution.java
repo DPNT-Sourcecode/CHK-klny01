@@ -24,6 +24,12 @@ public class CheckoutSolution {
         if (skus == null){
             return -1;
         }
+        //int totalPrice = 0;
+//        for(char sku : skus.toCharArray()){
+//            if(prices.containsKey(sku)){
+//
+//            }
+//        }
 
         Map<Character, Integer> itemCounts = new HashMap<>();
 
@@ -38,7 +44,7 @@ public class CheckoutSolution {
 
         for(Map.Entry<Character, Integer> entry : itemCounts.entrySet()) {
             char sku = entry.getKey();
-            int count = entry.getKey();
+            int count = entry.getValue();
 
             if(!prices.containsKey(sku) || count < 0){
                 return -1;
@@ -81,4 +87,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
