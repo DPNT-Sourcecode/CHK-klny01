@@ -93,6 +93,10 @@ public class CheckoutSolution {
             this.freeItem = freeItem;
         }
 
+        public SpecialOffer(int count, int price){
+            this(count, price, '\0');
+        }
+
         public int getCount(){
             return count;
         }
@@ -106,6 +110,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
