@@ -6,6 +6,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CheckoutSolution {
+    private static Map<Character, Integer> prices = new HashMap<>();
+    private static Map<Character, SpecialOffer> specialOffers= new HashMap<>();
+
+    static {
+        prices.put('A', 50);
+        prices.put('B', 30);
+        prices.put('C', 20);
+        prices.put('C', 15);
+
+        specialOffers.put('A', new SpecialOffer(3, 130));
+        specialOffers.put('B', new SpecialOffer(2, 45));
+    }
+
     public Integer checkout(String skus) {
 
         if (skus == null){
@@ -20,11 +33,40 @@ public class CheckoutSolution {
 
         int totalPrice = 0;
 
-        for(Map.Entry<Character, Integer> entry : itemCounts.entrySet()){
-            
+        for(Map.Entry<Character, Integer> entry : itemCounts.entrySet()) {
+            char sku = entry.getKey();
+            int count = entry.getKey();
+
+            if(!prices.containsKey(sku) || count < 0){
+                return -1;
+            }
+
+            int price = prices.get(sku);
+            SpecialOffer specialOffer = specialOffers.getOrDefault()
+
         }
 
     }
+
+
+    private static class SpecialOffer{
+        private int count;
+        private int price;
+
+        public SpecialOffer(int count, int price){
+            this.count = count;
+            this.price = price;
+        }
+
+        public int getCount(){
+            return count;
+        }
+
+        public int getPrice(){
+            return price;
+        }
+    }
 }
+
 
 
