@@ -42,7 +42,13 @@ public class CheckoutSolution {
             }
 
             int price = prices.get(sku);
-            SpecialOffer specialOffer = specialOffers.getOrDefault()
+            SpecialOffer specialOffer = specialOffers.getOrDefault(sku, null);
+
+            if (specialOffer != null){
+                int specialOfferCount = specialOffer.getCount();
+                int specialOfferPrice = specialOffer.getPrice();
+                totalPrice += (count / specialOfferCount) * specialOfferPrice + (count % specialOfferCount) * price;
+            }
 
         }
 
@@ -67,6 +73,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
