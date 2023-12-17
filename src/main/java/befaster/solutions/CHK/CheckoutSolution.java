@@ -56,6 +56,10 @@ public class CheckoutSolution {
                 int totalSpecialPrice = (count / specialOfferCount) * specialOfferPrice + (count % specialOfferCount) * price;
                 totalPrice += totalSpecialPrice;
 
+                if(specialOffer.getFreeItem() != null){
+
+                }
+
             }
             else{
                totalPrice += count * price;
@@ -71,10 +75,12 @@ public class CheckoutSolution {
     private static class SpecialOffer{
         private int count;
         private int price;
+        private char freeItem;
 
-        public SpecialOffer(int count, int price){
+        public SpecialOffer(int count, int price, char freeItem){
             this.count = count;
             this.price = price;
+            this.freeItem = freeItem;
         }
 
         public int getCount(){
@@ -84,5 +90,10 @@ public class CheckoutSolution {
         public int getPrice(){
             return price;
         }
+
+        public char getFreeItem(){
+            return freeItem;
+        }
     }
 }
+
