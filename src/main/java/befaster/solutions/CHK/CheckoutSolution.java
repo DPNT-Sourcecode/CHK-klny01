@@ -58,7 +58,7 @@ public class CheckoutSolution {
                 int totalSpecialPrice = (count / specialOfferCount) * specialOfferPrice + (count % specialOfferCount) * price;
                 totalPrice += totalSpecialPrice;
 
-                if(specialOffer.getFreeItem() != null){
+                if(specialOffer.getFreeItem() != ' '){
                     char freeItemSku = specialOffer.getFreeItem();
                     int freeItemQuantity = (count / specialOfferCount);
                     freeItemCount.put(freeItemSku, freeItemCount.getOrDefault(freeItemSku, 0) + freeItemQuantity);
@@ -68,7 +68,13 @@ public class CheckoutSolution {
             else{
                totalPrice += count * price;
             }
+        }
 
+        for(Map.Entry<Character, Integer> entry : freeItemCount.entrySet()){
+            char freeItemSku = entry.getKey();
+            int freeItemQuantity = entry.getValue();
+            int freeItemPrice = prices.get(freeItemSku);
+            totalPrice -= freeItemQuantity * freeItemPrice;
         }
 
         return totalPrice;
@@ -100,6 +106,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
